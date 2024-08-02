@@ -1,5 +1,5 @@
 # TBase64_Picture
 VCL &amp; FMX TBase64_Picture [ENCODER || DECODER] Currentlly Target Windows Only 
 
-![](TBase64_Picture.png)
+![](I_Base64_Picture)
 ![](TFinal_Picture.png)
