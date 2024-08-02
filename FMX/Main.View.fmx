@@ -1,0 +1,150 @@
+object MainView: TMainView
+  Left = 0
+  Top = 0
+  Caption = 'Base64 [ Encoder || Decoder ]'
+  ClientHeight = 336
+  ClientWidth = 612
+  Position = DesktopCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Lyt_Main: TLayout
+    Align = Contents
+    Size.Width = 612.000000000000000000
+    Size.Height = 336.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Pnl_Title: TPanel
+      Align = Top
+      Size.Width = 612.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Txt_Title: TText
+        Align = Left
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 289.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Base64 [ Encoder || Decoder ]'
+        TextSettings.Font.Family = 'Bahnschrift'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Leading
+      end
+    end
+    object Pnl_Status: TPanel
+      Align = Bottom
+      Position.Y = 309.000000000000000000
+      Size.Width = 612.000000000000000000
+      Size.Height = 27.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Txt_Status: TText
+        Align = Client
+        Size.Width = 612.000000000000000000
+        Size.Height = 27.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Bahnschrift'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.HorzAlign = Leading
+      end
+    end
+    object Memo_Base64: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      TextSettings.WordWrap = True
+      OnChangeTracking = Memo_Base64ChangeTracking
+      Position.X = 225.000000000000000000
+      Position.Y = 92.000000000000000000
+      Size.Width = 371.000000000000000000
+      Size.Height = 209.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Viewport.Width = 367.000000000000000000
+      Viewport.Height = 205.000000000000000000
+    end
+    object Btn_LoadPicture: TButton
+      Cursor = crHandPoint
+      StyledSettings = [Style, FontColor]
+      Position.X = 8.000000000000000000
+      Position.Y = 43.000000000000000000
+      Size.Width = 209.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Load Picture'
+      TextSettings.Font.Family = 'Bahnschrift'
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.Trimming = None
+      OnClick = Btn_LoadPictureClick
+    end
+    object Btn_Encode: TButton
+      Cursor = crHandPoint
+      Enabled = False
+      StyledSettings = [Style, FontColor]
+      Position.X = 225.000000000000000000
+      Position.Y = 43.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'Encode Picture'
+      TextSettings.Font.Family = 'Bahnschrift'
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.Trimming = None
+      OnClick = Btn_EncodeClick
+    end
+    object Btn_Decode: TButton
+      Cursor = crHandPoint
+      Enabled = False
+      StyledSettings = [Style, FontColor]
+      Position.X = 419.000000000000000000
+      Position.Y = 43.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Decode Picture'
+      TextSettings.Font.Family = 'Bahnschrift'
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.Trimming = None
+      OnClick = Btn_DecodeClick
+    end
+    object Img_Src: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Position.X = 8.000000000000000000
+      Position.Y = 92.000000000000000000
+      Size.Width = 209.000000000000000000
+      Size.Height = 209.000000000000000000
+      Size.PlatformDefault = False
+      object Btn_SavePicture: TButton
+        Align = Bottom
+        Cursor = crHandPoint
+        Enabled = False
+        StyledSettings = [Style, FontColor]
+        Position.Y = 168.000000000000000000
+        Size.Width = 209.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Text = 'Save Picture'
+        TextSettings.Font.Family = 'Bahnschrift'
+        TextSettings.Font.Size = 15.000000000000000000
+        TextSettings.Trimming = None
+        OnClick = Btn_SavePictureClick
+      end
+    end
+  end
+  object OpenDlg_Picture: TOpenDialog
+    Left = 64
+    Top = 116
+  end
+  object SaveDialog_Picture: TSaveDialog
+    Left = 64
+    Top = 172
+  end
+end

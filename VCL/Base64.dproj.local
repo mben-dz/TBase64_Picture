@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.045,F:\Sydney_2021\Rio_2021\Base64\API\API.Base64.pas=F:\Sydney_2021\Rio_2021\Base64\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.412,=F:\Sydney_2021\Rio_2021\Base64\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.458,=F:\Sydney_2021\Rio_2021\Base64\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.463,=F:\Sydney_2021\Rio_2021\Base64\API\API.Base64.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.875,F:\Sydney_2021\Rio_2021\Base64\VCL\Main.View.dfm=F:\Sydney_2021\Rio_2021\Base64\VCL\UMain.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.875,F:\Sydney_2021\Rio_2021\Base64\VCL\Main.View.pas=F:\Sydney_2021\Rio_2021\Base64\VCL\UMain.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.391,D:\Sydney_2021\Rio_2021\Base64\Base64.dproj=D:\Sydney_2021\Rio_2021\Project1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.022,F:\Sydney_2021\Rio_2021\Base64\API\API.Types.pas=F:\Sydney_2021\Rio_2021\Base64\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.761,=D:\Sydney_2021\Rio_2021\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.898,D:\Sydney_2021\Rio_2021\Base64\UMain.dfm=D:\Sydney_2021\Rio_2021\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.898,D:\Sydney_2021\Rio_2021\Base64\UMain.pas=D:\Sydney_2021\Rio_2021\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.764,=D:\Sydney_2021\Rio_2021\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.560,=F:\Sydney_2021\Rio_2021\Base64\API\API.Types.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.422,=D:\Sydney_2021\Rio_2021\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.502,=D:\Sydney_2021\Rio_2021\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

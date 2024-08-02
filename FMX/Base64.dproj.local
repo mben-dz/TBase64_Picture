@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.560,=D:\2025\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.521,=D:\2025\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.615,=D:\2025\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.273,=D:\2025\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.844,=F:\Sydney_2021\Rio_2021\Base64\Base64_FMX\API\API.Base64.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.604,F:\Sydney_2021\Rio_2021\Base64\Base64_FMX\Main.View.fmx=D:\2025\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.975,=F:\Sydney_2021\Rio_2021\Base64\Base64_FMX\API\API.Types.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.291,=F:\Sydney_2021\Rio_2021\Base64\API\API.Base64.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.753,F:\Sydney_2021\Rio_2021\Base64\Base64_FMX\Base64.dproj=D:\2025\Projects\Project1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.604,F:\Sydney_2021\Rio_2021\Base64\Base64_FMX\Main.View.pas=D:\2025\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.380,=F:\Sydney_2021\Rio_2021\Base64\API\API.Types.pas</Transaction>
+  </Transactions>
+</BorlandProject>
