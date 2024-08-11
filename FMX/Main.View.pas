@@ -137,6 +137,7 @@ end;
 
 procedure TMainView.Btn_DecodeClick(Sender: TObject);
 begin
+//  Base64.Decode(MemoStream, Img_Src.Bitmap.ToFinalPicture);
   TStaticBase64Picture.Decode(MemoStream, Img_Src.Bitmap.ToFinalPicture);
   TRY
     OnPicture_Changed;
@@ -148,7 +149,8 @@ end;
 procedure TMainView.Btn_EncodeClick(Sender: TObject);
 begin
   Memo.Empty;
-  Memo := Base64.Encode(Img_Src.Bitmap.ToFinalPicture);
+//  Memo := Base64.Encode(Img_Src.Bitmap.ToFinalPicture);
+  Memo := TStaticBase64Picture.Encode(Img_Src.Bitmap.ToFinalPicture);
 
   LogStatus['Encoded Base64 Picture Saved to Clipboard Successfully ..'];
 

@@ -14,7 +14,8 @@ type
   private
   public
     class procedure Decode(const aInput: TMemoryStream; aResultPic: TFinalPicture); static;
-    class function Encode(const aInput: TMemoryStream): string; static;
+    class function Encode(const aInput: TMemoryStream): string; overload; static;
+    class function Encode(const aPicture: TFinalPicture): string; overload; static;
   end;
 
   I_Base64Picture = interface ['{3CF67E4A-F377-4CDA-B3D1-F4580D2DE363}']
@@ -81,6 +82,22 @@ begin
   end;
 end;
 
+class function TStaticBase64Picture.Encode(
+  const aPicture: TFinalPicture): string;
+var
+  LSrcStream: TMemoryStream;
+begin
+  LSrcStream := TMemoryStream.Create;
+  try
+    aPicture.SaveToStream(LSrcStream);
+    LSrcStream.Position := 0;
+
+    Result :=  Encode(LSrcStream);
+    LSrcStream.Clear;
+  finally
+    FreeAndNil(LSrcStream);
+  end;
+end;
 
 type
   TBase64Picture = class(TInterfacedObject, I_Base64Picture)

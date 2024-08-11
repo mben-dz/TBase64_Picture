@@ -132,7 +132,8 @@ end;
 
 procedure TMainView.Btn_DecodeClick(Sender: TObject);
 begin
-  TStaticBase64Picture.Decode(MemoStream, Img_Src.Picture.ToFinalPicture);
+//  TStaticBase64Picture.Decode(MemoStream, Img_Src.Picture.ToFinalPicture);
+  Base64.Decode(MemoStream, Img_Src.Picture.ToFinalPicture);
   TRY
     OnPicture_Changed;
   FINALLY
@@ -147,6 +148,7 @@ begin
   LClipboard  := TClipboard.Create;
   try
     Memo.Empty;
+//    Memo := TStaticBase64Picture.Encode(Img_Src.Picture.ToFinalPicture);
     Memo := Base64.Encode(Img_Src.Picture.ToFinalPicture);
 
     LClipboard.AsText := Memo;
