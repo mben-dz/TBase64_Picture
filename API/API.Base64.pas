@@ -9,20 +9,22 @@ uses
 ;
 
 type
-  TStatic_Base64_Picture = class
+
+  TStaticBase64Picture = class
   private
   public
-    class function Decode(const aInput: TMemoryStream): TFinal_Picture; static;
+    class procedure Decode(const aInput: TMemoryStream; aResultPic: TFinalPicture); static;
     class function Encode(const aInput: TMemoryStream): string; static;
   end;
 
-  I_Base64_Picture = interface ['{3CF67E4A-F377-4CDA-B3D1-F4580D2DE363}']
+  I_Base64Picture = interface ['{3CF67E4A-F377-4CDA-B3D1-F4580D2DE363}']
 
-    function Decode(const aInput: TMemoryStream): TFinal_Picture;
-    function Encode(const aInput: TMemoryStream): string;
+    procedure Decode(const aInput: TMemoryStream; aResultPic: TFinalPicture);
+    function Encode(const aInput: TMemoryStream): string; overload;
+    function Encode(const aPicture: TFinalPicture): string; overload;
   end;
 
-  function Get_TBase64_Picture: I_Base64_Picture;
+  function GetTBase64Picture: I_Base64Picture;
 
 implementation
 
@@ -31,127 +33,144 @@ uses
 , System.SysUtils     // Used for [Exception]
 ;
 
-{ TStatic_Base64_Picture<aInput> }
+{ TStaticBase64Picture<aInput> }
 
-class function TStatic_Base64_Picture.Decode(const aInput: TMemoryStream): TFinal_Picture;
+class procedure TStaticBase64Picture.Decode(const aInput: TMemoryStream; aResultPic: TFinalPicture);
 var
-  L_Output: TMemoryStream;
-  L_Pic: TFinal_Picture;
+  LOutput: TMemoryStream;
+  LPic: TFinalPicture;
 begin
-  L_Output := TMemoryStream.Create;
+  LOutput := TMemoryStream.Create;
   try
     aInput.Position := 0;
 
-    TNetEncoding.Base64.Decode(aInput, L_Output);
-    L_Output.Position := 0;
+    TNetEncoding.Base64.Decode(aInput, LOutput);
+    LOutput.Position := 0;
     {$IF Defined(FRAMEWORK_FMX)}
-    L_Pic := TFinal_Picture.Get_Result(200, 100);
+    LPic := TFinalPicture.Get_Result(200, 100);
     {$ELSE}
-    L_Pic := TFinal_Picture.Get_Result;
+    LPic := TFinalPicture.Get_Result;
     {$ENDIF}
     try
-      L_Pic.LoadFromStream(L_Output);
+      LPic.LoadFromStream(LOutput);
     except on Ex: Exception do
       raise Exception.Create('Error: '+ Ex.Message);
     end;
 
+    TFinalPicture(aResultPic).Assign(LPic);
   finally
-    L_Output.Free;
+    LOutput.Free;
+    FreeAndNil(LPic);
   end;
-
-  Result := L_Pic;
 end;
 
-class function TStatic_Base64_Picture.Encode(const aInput: TMemoryStream): string;
+class function TStaticBase64Picture.Encode(const aInput: TMemoryStream): string;
 var
-  L_Output: TStringStream;
+  LOutput: TStringStream;
 begin
-  L_Output := TStringStream.Create;
+  LOutput := TStringStream.Create;
   try
     aInput.Position := 0;
 
-    TNetEncoding.Base64.Encode(aInput, L_Output);
-    L_Output.Position := 0;
+    TNetEncoding.Base64.Encode(aInput, LOutput);
+    LOutput.Position := 0;
 
-    Result := L_Output.DataString;
+    Result := LOutput.DataString;
   finally
-    L_Output.Free;
+    LOutput.Free;
   end;
 end;
 
 
 type
-  TBase64_Picture = class(TInterfacedObject, I_Base64_Picture)
+  TBase64Picture = class(TInterfacedObject, I_Base64Picture)
   strict private
   private
-    function Decode(const aInput: TMemoryStream): TFinal_Picture;
-    function Encode(const aInput: TMemoryStream): string;
+    procedure Decode(const aInput: TMemoryStream; aResultPic: TFinalPicture);
+    function Encode(const aInput: TMemoryStream): string; overload;
+    function Encode(const aPicture: TFinalPicture): string; overload;
   public
     constructor Create;
     destructor Destroy; override;
   end;
 
-function Get_TBase64_Picture: I_Base64_Picture; begin
+function GetTBase64Picture: I_Base64Picture; begin
 
-  Result := TBase64_Picture.Create;
+  Result := TBase64Picture.Create;
 end;
 
 
-{ TBase64_Picture }
+{ TBase64Picture }
 
 {$REGION '  [constructor||destructor] ..'}
-constructor TBase64_Picture.Create;
+constructor TBase64Picture.Create;
 begin
 end;
 
-destructor TBase64_Picture.Destroy;
+destructor TBase64Picture.Destroy;
 begin inherited;
 end;
 {$ENDREGION}
 
-function TBase64_Picture.Decode(const aInput: TMemoryStream): TFinal_Picture;
+procedure TBase64Picture.Decode(const aInput: TMemoryStream; aResultPic: TFinalPicture);
 var
-  L_Output: TMemoryStream;
-  L_Pic: TFinal_Picture;
+  LOutput: TMemoryStream;
+  LPic: TFinalPicture;
 begin
-  L_Output := TMemoryStream.Create;
+  LOutput := TMemoryStream.Create;
   try
     aInput.Position := 0;
 
-    TNetEncoding.Base64.Decode(aInput, L_Output);
-    L_Output.Position := 0;
+    TNetEncoding.Base64.Decode(aInput, LOutput);
+    LOutput.Position := 0;
     {$IF Defined(FRAMEWORK_FMX)}
-    L_Pic := TFinal_Picture.Get_Result(200, 100);
+    LPic := TFinalPicture.Get_Result(200, 100);
     {$ELSE}
-    L_Pic := TFinal_Picture.Get_Result;
+    LPic := TFinalPicture.Get_Result;
     {$ENDIF}
     try
-      L_Pic.LoadFromStream(L_Output);
+      LPic.LoadFromStream(LOutput);
     except on Ex: Exception do
       raise Exception.Create('Error: '+ Ex.Message);
     end;
 
+    aResultPic.Assign(LPic);
   finally
-    L_Output.Free;
+    LOutput.Free;
+    FreeAndNil(LPic)
   end;
-
-  Result := L_Pic;
 end;
 
-function TBase64_Picture.Encode(const aInput: TMemoryStream): string;
+function TBase64Picture.Encode(const aInput: TMemoryStream): string;
 var
-  L_Output: TStringStream;
+  LOutput: TStringStream;
 begin
-  L_Output := TStringStream.Create;
+  LOutput := TStringStream.Create;
   try
     aInput.Position := 0;
 
-    TNetEncoding.Base64.Encode(aInput, L_Output);
-    L_Output.Position := 0;
+    TNetEncoding.Base64.Encode(aInput, LOutput);
+    LOutput.Position := 0;
 
-    Result := L_Output.DataString;
+    Result := LOutput.DataString;
   finally
-    L_Output.Free;
+    LOutput.Free;
+  end;
+end;
+
+function TBase64Picture.Encode(const aPicture: TFinalPicture): string;
+var
+  LSrcStream: TMemoryStream;
+begin
+  LSrcStream := TMemoryStream.Create;
+  try
+    aPicture.SaveToStream(LSrcStream);
+    LSrcStream.Position := 0;
+
+    Result :=  Encode(LSrcStream);
+    LSrcStream.Clear;
+  finally
+    FreeAndNil(LSrcStream);
   end;
 end;
 
